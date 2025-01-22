@@ -10,7 +10,7 @@ function adicionarAmigo(){
     
    }else{
     if(listaDeAmigos.includes(amigoAdicionado) == true){
-    alert("Nome esse nome já foi adicionado");
+    alert("Esse nome já foi adicionado");
         } else{
             alert("Nome inválido.");
         }
@@ -30,6 +30,7 @@ function limparCampo(){
     amigoAdicionado.value = '';
 }
 function sortearAmigo(){
-    let amigoAleatorio = parseInt(Math.random() * listaDeAmigos.length)
+    let amigoAleatorio = parseInt(Math.random() * listaDeAmigos.length);
+    
     document.getElementById('resultado').innerHTML = listaDeAmigos[amigoAleatorio];
 }
