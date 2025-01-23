@@ -51,7 +51,7 @@ function limparCampo(){
 function sortearAmigo(){
     amigoAleatorio = aleatorizar();
     presenteadoAleatorio = aleatorizar();
-    if(listaDeAmigos.length % 2 == 0){
+    if(listaDeAmigos.length > 2){
         if(amigosSorteados.length != listaDeAmigos.length){
             while(amigoAleatorio == presenteadoAleatorio){
                 amigoAleatorio = aleatorizar();
@@ -78,6 +78,6 @@ function sortearAmigo(){
         }
 
     } else{
-        document.getElementById('resultado').innerHTML = 'A quantidade de participantes deve ser par.'
+        document.getElementById('resultado').innerHTML = 'Insira mais participantes'
     }
 }
