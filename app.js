@@ -20,6 +20,8 @@ function adicionarAmigo(){
     presenteadosSorteados = [];
 }
 
+
+
 function escreverNaTela(id, lista){
     let taG = document.createElement('li');
     for(var i = 0; i < lista.length; i++){
@@ -37,8 +39,6 @@ function limparCampo(){
     amigoAdicionado.value = '';
 }
 function sortearAmigo(){
-    amigoAleatorio = aleatorizar();
-    presenteadoAleatorio = aleatorizar();
     if(listaDeAmigos.length > 2){
         
         //Embaralhar lista de nomes
