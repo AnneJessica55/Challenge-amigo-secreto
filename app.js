@@ -1,11 +1,5 @@
 //O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
 let listaDeAmigos = [];
-let amigoAleatorio;
-let presenteadoAleatorio;
-let amigosSorteados = [];
-let presenteadosSorteados = [];
-let listaDeSorteados = [];
-
 function adicionarAmigo(){
    let amigoAdicionado = document.getElementById('amigo').value; 
    if(amigoAdicionado != "" && listaDeAmigos.includes(amigoAdicionado) == false){
@@ -25,12 +19,6 @@ function adicionarAmigo(){
     amigosSorteados = [];
     presenteadosSorteados = [];
 }
-
-function aleatorizar (){
-    let aleatorio = parseInt(Math.random() * listaDeAmigos.length);
-    return aleatorio;
-}
-
 
 function escreverNaTela(id, lista){
     let taG = document.createElement('li');
