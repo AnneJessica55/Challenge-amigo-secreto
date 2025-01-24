@@ -27,7 +27,7 @@ function adicionarAmigo(){
 }
 
 function aleatorizar (){
-    let aleatorio = parseInt(Math.random() * listaDeAmigos.length - 0.5);
+    let aleatorio = parseInt(Math.random() * listaDeAmigos.length);
     return aleatorio;
 }
 
@@ -52,30 +52,24 @@ function sortearAmigo(){
     amigoAleatorio = aleatorizar();
     presenteadoAleatorio = aleatorizar();
     if(listaDeAmigos.length > 2){
-        if(amigosSorteados.length != listaDeAmigos.length){
-            while(amigoAleatorio == presenteadoAleatorio){
-                amigoAleatorio = aleatorizar();
-                presenteadoAleatorio = aleatorizar();
-            }
+        
+        //Embaralhar lista de nomes
+        const sorteados = [...listaDeAmigos].sort(() => Math.random() - 0.5);
 
-            while(amigosSorteados.includes(amigoAleatorio) == true || presenteadosSorteados.includes(presenteadoAleatorio) == true){
-                amigoAleatorio = aleatorizar();
-                presenteadoAleatorio = aleatorizar();
-            }
-
-            amigosSorteados.push(amigoAleatorio);
-            presenteadosSorteados.push(presenteadoAleatorio);
-            //Criando um array de texto
-            listaDeSorteados.push(`${listaDeAmigos[amigoAleatorio]} ---> ${listaDeAmigos[presenteadoAleatorio]}`);
-
-            escreverNaTela('resultado', listaDeSorteados);
-
-        }else{
-            document.getElementById('resultado').innerHTML = "Todos ja foram Sorteados"
-            listaDeSorteados = [];
-            amigosSorteados = [];
-            presenteadosSorteados = [];
+        //criar pares
+        const resultado = [];
+        for(let contador_1 = 0; contador_1 < sorteados.length; contador_1++){
+            const amigo = sorteados[(contador_1 + 1) % sorteados.length];
+            resultado.push(`${sorteados[contador_1]} ---> ${amigo}`);
         }
+
+        //Escrevendo o resultado na tela
+        const resultadoUl = document.getElementById('resultado');
+        resultado.forEach(par => {
+            const uL = document.createElement('li');
+            uL.textContent = par;
+            resultadoUl.appendChild(uL);
+        })
 
     } else{
         document.getElementById('resultado').innerHTML = 'Insira mais participantes'
